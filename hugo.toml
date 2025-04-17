@@ -2,3 +2,6 @@ baseURL = 'https://tobiokanlawon.github.com/'
 languageCode = 'en-us'
 title = 'Tobi Okanlawon'
 theme = 'poison'
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
