@@ -1,0 +1,4 @@
+baseURL = 'https://tobiokanlawon.github.com/'
+languageCode = 'en-us'
+title = 'Tobi Okanlawon'
+theme = 'poison'
