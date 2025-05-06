@@ -49,14 +49,18 @@
 
 
 
+  
+  
+  
+
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">Tobi Okanlawon</title>
-<meta property="og:title" content=Tobi&#32;Okanlawon />
-<meta name="twitter:title" content=Tobi&#32;Okanlawon />
-<meta itemprop="name" content=Tobi&#32;Okanlawon />
-<meta name="application-name" content=Tobi&#32;Okanlawon />
+<title itemprop="name">Tobi - Caching</title>
+<meta property="og:title" content=Tobi&#32;-&#32;Caching />
+<meta name="twitter:title" content=Tobi&#32;-&#32;Caching />
+<meta itemprop="name" content=Tobi&#32;-&#32;Caching />
+<meta name="application-name" content=Tobi&#32;-&#32;Caching />
 <meta property="og:site_name" content="Tobi Okanlawon" />
 
 
@@ -66,18 +70,17 @@
 <meta name="twitter:description" content="" />
 
 
-<base href="//localhost:1313/tags/" />
-<link rel="canonical" href="//localhost:1313/tags/" itemprop="url" />
-<meta name="url" content="//localhost:1313/tags/" />
-<meta name="twitter:url" content="//localhost:1313/tags/" />
-<meta property="og:url" content="//localhost:1313/tags/" />
+<base href="//localhost:1313/posts/caching/" />
+<link rel="canonical" href="//localhost:1313/posts/caching/" itemprop="url" />
+<meta name="url" content="//localhost:1313/posts/caching/" />
+<meta name="twitter:url" content="//localhost:1313/posts/caching/" />
+<meta property="og:url" content="//localhost:1313/posts/caching/" />
 
 
-<meta property="og:updated_time" content="0001-01-01T00:00:00Z" />
+<meta property="og:updated_time" content="2025-04-24T19:04:04&#43;01:00" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='//localhost:1313/sitemap.xml' />
-<link href="//localhost:1313/tags/index.xml" rel="alternate" type="application/rss+xml" title="Tobi Okanlawon" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -219,7 +222,19 @@
                             </li>
                         
                             <li class="bullet">
-                                <a href="//localhost:1313/posts/introduction/">Introduction</a>
+                                <a href="//localhost:1313/posts/react-error-boundary/">React Error Boundary</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:1313/posts/personal-css-reset/">Personal Css Reset</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:1313/posts/caching/">Caching</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:1313/posts/abyss/">Staring contest with the Abyss (rough idea)</a>
                             </li>
                         
                     
@@ -296,13 +311,94 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </aside>
 
             <main class="content container">
-                <h1 class="title">Tags</h1>
-<ul class="entries">
-    
-</ul>
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="//localhost:1313/posts/caching/">Caching</a>
+  </h1>
 
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-04-24T19:04:04&#43;0100" class="post-date">
+        April 24, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>2 mins read</span>
+      </span>
+    </div>
+
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <p>In this article, I will explain caching to you, first as a lone concept then as it relates to the web specifically. I&rsquo;ll begin at first principles of caching (simplified), and I&rsquo;ll show you how to leverage the in-built caching mechanisms available through HTTP.</p>
+<h2 id="caching-what-even-is-that">Caching? What even is that?</h2>
+<p>Caching (pronounced &ldquo;kash-ing&rdquo;) is a performance and reliability technique that involves keeping a store of a resource in a way that enables more reliable retrieval than the original source of that data. Reliability, in this context, concerns how fast we can get this resource, or/and availability, which is whether or not this resource is even available when we most need it.</p>
+<h2 id="isnt-that-just-storing-it-replication">Isn&rsquo;t that just storing it? Replication?</h2>
+<p>The difference between caching and replication is that a cache is never authoritative. It only holds a representation, or a portion, a buffer, of the resource, never the full resource, and there&rsquo;s always the expectation that the cache will go <em>stale</em> or it will be insufficient.</p>
+<p>When data is replicated, so long as it is done correctly, we expect to never have to go back to check the original, except in the case of mirroring (like backups). Any of these mirrors can becomes the authoritative store of that resource if the other fails, never so with a cache.</p>
+<p>We can imagine someone storing a bit of fuel as a cache, a buffer to make it more reliable when it&rsquo;s needed. It&rsquo;s just a buffer, eventually, that person will have to rely on the <em>global</em> store of fuel again.</p>
+<h2 id="why-even-cache">Why even cache?</h2>
+<p>We cache for a few reasons:</p>
+<ul>
+<li>
+<p>Maybe that information has to be recomputed every time and that&rsquo;s expensive. For example, having to source for the price of something every time you want to know it. Even if it were easily available on the internet, if that price is <em>used regularly</em>, and <em>didn&rsquo;t change frequently</em>, you&rsquo;d really wanna remember it to save yourself some time.</p>
+</li>
+<li>
+<p>Or it could just be that the resource isn&rsquo;t always readily available. For example, a father may save a picture of his kids so that he can look at them when he is physically away from them.</p>
+</li>
+</ul>
+<p>Note: In my opinion, when the original resource stops being available at all, it&rsquo;s no longer a cache, it&rsquo;s an archive. In the case of the pictures, once they grow much older than themselves in the pictures, it really stops being a cache and becomes an archive.</p>
+<p>We use this technique in various non-digital ways.</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="//localhost:1313/posts/abyss/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>Staring contest with the Abyss (rough idea)</a>
+        
+	    
+            <div class="next-post">
+                <a href="//localhost:1313/posts/personal-css-reset/?ref=footer"><span style="font-weight:bold;">Next »</span><br>Personal Css Reset</a>
+            </div>
+        
+    
+</div>
+
+  
+</div>
             </main>
             
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#caching-what-even-is-that">Caching? What even is that?</a></li>
+    <li><a href="#isnt-that-just-storing-it-replication">Isn&rsquo;t that just storing it? Replication?</a></li>
+    <li><a href="#why-even-cache">Why even cache?</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
         </div>
     </body>
 </html>

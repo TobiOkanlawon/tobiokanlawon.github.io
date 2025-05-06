@@ -49,14 +49,18 @@
 
 
 
+  
+  
+  
+
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">Tobi Okanlawon</title>
-<meta property="og:title" content=Tobi&#32;Okanlawon />
-<meta name="twitter:title" content=Tobi&#32;Okanlawon />
-<meta itemprop="name" content=Tobi&#32;Okanlawon />
-<meta name="application-name" content=Tobi&#32;Okanlawon />
+<title itemprop="name">Tobi - React Error Boundary</title>
+<meta property="og:title" content=Tobi&#32;-&#32;React&#32;Error&#32;Boundary />
+<meta name="twitter:title" content=Tobi&#32;-&#32;React&#32;Error&#32;Boundary />
+<meta itemprop="name" content=Tobi&#32;-&#32;React&#32;Error&#32;Boundary />
+<meta name="application-name" content=Tobi&#32;-&#32;React&#32;Error&#32;Boundary />
 <meta property="og:site_name" content="Tobi Okanlawon" />
 
 
@@ -66,18 +70,17 @@
 <meta name="twitter:description" content="" />
 
 
-<base href="//localhost:1313/tags/" />
-<link rel="canonical" href="//localhost:1313/tags/" itemprop="url" />
-<meta name="url" content="//localhost:1313/tags/" />
-<meta name="twitter:url" content="//localhost:1313/tags/" />
-<meta property="og:url" content="//localhost:1313/tags/" />
+<base href="//localhost:1313/posts/react-error-boundary/" />
+<link rel="canonical" href="//localhost:1313/posts/react-error-boundary/" itemprop="url" />
+<meta name="url" content="//localhost:1313/posts/react-error-boundary/" />
+<meta name="twitter:url" content="//localhost:1313/posts/react-error-boundary/" />
+<meta property="og:url" content="//localhost:1313/posts/react-error-boundary/" />
 
 
-<meta property="og:updated_time" content="0001-01-01T00:00:00Z" />
+<meta property="og:updated_time" content="2025-05-04T20:21:29&#43;01:00" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='//localhost:1313/sitemap.xml' />
-<link href="//localhost:1313/tags/index.xml" rel="alternate" type="application/rss+xml" title="Tobi Okanlawon" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -219,7 +222,19 @@
                             </li>
                         
                             <li class="bullet">
-                                <a href="//localhost:1313/posts/introduction/">Introduction</a>
+                                <a href="//localhost:1313/posts/react-error-boundary/">React Error Boundary</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:1313/posts/personal-css-reset/">Personal Css Reset</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:1313/posts/caching/">Caching</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="//localhost:1313/posts/abyss/">Staring contest with the Abyss (rough idea)</a>
                             </li>
                         
                     
@@ -296,13 +311,98 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </aside>
 
             <main class="content container">
-                <h1 class="title">Tags</h1>
-<ul class="entries">
-    
-</ul>
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="//localhost:1313/posts/react-error-boundary/">React Error Boundary</a>
+  </h1>
 
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-05-04T20:21:29&#43;0100" class="post-date">
+        May 4, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>1 min read</span>
+      </span>
+    </div>
+
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <p>In this post, I explore the utility of the error boundary in ReactJS.</p>
+<h1 id="whats-an-error-boundary">What&rsquo;s an error boundary?</h1>
+<p>The error boundary in React is a technique of catching errors that happen in a child component and rendering a fallback UI. This is important because whenever an error occurs, the default action is to remove the UI and log an error to the console.</p>
+<p>Let&rsquo;s look at a simple example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Note</span> <span style="color:#f92672">=</span> ({<span style="color:#a6e22e">name</span>}) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;name not supplied!&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Note</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;some name&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Note</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
+
+    <img src="//localhost:1313/posts/react-error-boundary//images/screenshot-1.png" title="An empty UI and an error message in the console because there&#39;s no error boundary" alt="An empty UI and an error message in the console because there&#39;s no error boundary"/>
+
+</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="//localhost:1313/posts/personal-css-reset/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>Personal Css Reset</a>
+        
+	    
+            <div class="next-post">
+                <a href="//localhost:1313/posts/random-monalisa/?ref=footer"><span style="font-weight:bold;">Next »</span><br>The Random Monalisa</a>
+            </div>
+        
+    
+</div>
+
+  
+</div>
             </main>
             
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+  
+
         </div>
     </body>
 </html>
