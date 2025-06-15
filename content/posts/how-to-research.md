@@ -19,7 +19,7 @@ Essentially, in this step, we are aiming for choosing an end-goal.
 
 ## Step 2: Decide what sort of research you'd like to do (Hard vs Soft)
 
-*Hard research* is research that involves a lot of facts, i.e data and statistics. For research like this, it's best to stick to verified sources like articles published by journals and statistics published by National Bureaus. Hard research can be useful when wer are trying to research an article that makes *analytical claims*, which are based on interpretations of fact, data or sources.
+*Hard research* is research that involves a lot of facts, i.e data and statistics. For research like this, it's best to stick to verified sources like articles published by journals and statistics published by National Bureaus. Hard research can be useful when we're are trying to research an article that makes *analytical claims*, which are based on interpretations of fact, data or sources.
 
 Conversely, *soft research* is really about researching for an opinion about something, news outlets and opinion articles are fine here. This is useful when we are trying to research an article that makes *normative claims*, which are claims of value or evaluation.
 
