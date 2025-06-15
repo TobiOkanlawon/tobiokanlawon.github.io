@@ -22,7 +22,11 @@ The list is centred around my interests. Make your own if you're not satisfied
 
 - [HackerNews](https://news.ycombinator.com "The orange site"): Hackernews is a aggregation site where people, through some presumably flawed process, decide what ends up on the front page. Given that this is just tech news, this is enough for me.
 
- [Lobsters](https://www.lobste.rs "Computing-focused community aggregation site"): Very similar to hackernews, not as popular, and, IMHO stricter.
+- [Lobsters](https://www.lobste.rs "Computing-focused community aggregation site"): Very similar to hackernews, not as popular, and, IMHO stricter.
+
+## Philosophy
+
+- [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/ "Stanford's Encyclopedia of Philosophy"): Stanford's Encyclopedia of Philosophy is a fantastic resource for background information into a topic in Philosophy. It's been quite useful to me.
 
 ## Agriculture
 
