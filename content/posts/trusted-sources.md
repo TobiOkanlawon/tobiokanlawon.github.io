@@ -24,6 +24,8 @@ The list is centred around my interests. Make your own if you're not satisfied
 
 - [Lobsters](https://www.lobste.rs "Computing-focused community aggregation site"): Very similar to hackernews, not as popular, and, IMHO stricter.
 
+- [WebPerf.tips](https://webperf.tips/ "A website about web performance tips"): A website with a blog about web performance tips
+
 ## Philosophy
 
 - [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/ "Stanford's Encyclopedia of Philosophy"): Stanford's Encyclopedia of Philosophy is a fantastic resource for background information into a topic in Philosophy. It's been quite useful to me.
