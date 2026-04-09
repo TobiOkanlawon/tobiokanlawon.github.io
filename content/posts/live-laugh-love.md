@@ -9,9 +9,7 @@ tags = ["Poem", "Poetry"]
 
 There's a secret   
 Whispered by the sages   
-
 Protected through the ages   
-
 And it is this   
 
 The heart yearns to love   
